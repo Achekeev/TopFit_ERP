@@ -7,6 +7,8 @@ from .managers import CustomUserManager
 STAFF_CHOICES = (
     ('Trainer', 'Тренер'),
     ('Manager', 'Менеджер'),
+    ('Accountant', 'Бухгалтер'),
+    ('Client', 'Клиент'),
 )
 
 
@@ -58,15 +60,15 @@ class Group(models.Model):
         return self.name
 
 
-class Client(models.Model):
-    first_name = models.CharField(max_length=50, verbose_name='Имя')
-    last_name = models.CharField(max_length=50, verbose_name='Фамилия')
-    phone_number = models.CharField(max_length=50, verbose_name='Номер Телефона')
-    group = models.ForeignKey(Group, on_delete=models.CASCADE, verbose_name='Группа')
-
-    class Meta:
-        verbose_name = 'Клиент'
-        verbose_name_plural = 'Клиенты'
-
-    def __str__(self) -> str:
-        return self.last_name
+# class Client(models.Model):
+#     first_name = models.CharField(max_length=50, verbose_name='Имя')
+#     last_name = models.CharField(max_length=50, verbose_name='Фамилия')
+#     phone_number = models.CharField(max_length=50, verbose_name='Номер Телефона')
+#     group = models.ForeignKey(Group, on_delete=models.CASCADE, verbose_name='Группа')
+#
+#     class Meta:
+#         verbose_name = 'Клиент'
+#         verbose_name_plural = 'Клиенты'
+#
+#     def __str__(self) -> str:
+#         return self.last_name
